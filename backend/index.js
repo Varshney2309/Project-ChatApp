@@ -3,32 +3,40 @@ import express from 'express'
 import dotenv from 'dotenv';
 import mongoose, { mongo } from 'mongoose';
 import user_routes from './routes/user_routes.js';
+import message_routes from './routes/message_route.js'
+import cookieParser from 'cookie-parser';
+import cors from 'cors'
+import { app, server } from './SocketIO/server.js';
 
-const app=express();
+
 dotenv.config();
-
 
 //Middleware
 app.use(express.json())
+app.use(cookieParser())
+app.use(cors())
 
-const PORT= process.env.PORT || 3001;
+const PORT= process.env.PORT || 5000;
 const URI=process.env.MONGODB_URI;
 
-try{
-    mongoose.connect(URI)
-    console.log("COnnected to MongoDB");
-    
-}
-catch{
-    console.log(console.error());
+mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log("✅ Connected to MongoDB");
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running at http://localhost:${PORT}`);
+    });
+  })
+  .catch(err => {
+    console.error("❌ MongoDB connection error:", err.message);
+    process.exit(1);
+  });
 
-    
-}
 
 //routes
-app.use('/user',user_routes)
+app.use('/api/user',user_routes)
+app.use('/api/message',message_routes)
 
-app.listen(PORT,()=>{
+server.listen(PORT,()=>{
     console.log(`app is running on ${PORT}`);
 })
 
