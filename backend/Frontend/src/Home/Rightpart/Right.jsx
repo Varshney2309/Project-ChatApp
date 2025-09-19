@@ -1,7 +1,7 @@
 import React from 'react'
 import ChatUser from './ChatUser'
 import Messages from './Messages'
-import TypeSend from './typeSend'
+import TypeSend from './TypeSend.jsx'
 import UseConversation from '../../zustand/UseConversation.js'
 import { useEffect } from 'react'
 import Loading from '../../components/Loading.jsx'
