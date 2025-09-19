@@ -1,6 +1,6 @@
 import { useState,useContext } from "react";
 import { createContext } from "react";
-import { useAuth } from "./Authprovider.jsx";
+import { useAuth } from "./AuthProvider.jsx";
 import { useEffect } from "react";
 import io from 'socket.io-client'
 

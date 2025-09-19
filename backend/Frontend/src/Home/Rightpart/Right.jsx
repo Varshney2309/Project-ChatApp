@@ -5,7 +5,7 @@ import TypeSend from './typeSend'
 import UseConversation from '../../zustand/UseConversation.js'
 import { useEffect } from 'react'
 import Loading from '../../components/Loading.jsx'
-import { useAuth } from '../../context/Authprovider.jsx'
+import { useAuth } from '../../context/AuthProvider.jsx'
 import { CiMenuFries } from "react-icons/ci";
 
 function Right() {

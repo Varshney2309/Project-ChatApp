@@ -4,7 +4,7 @@ import Right from './Home/Rightpart/Right'
 import Signup from './components/Signup'
 import Login from './components/Login'
 
-import { useAuth } from './context/Authprovider'
+import { useAuth } from './context/AuthProvider'
 import { Navigate, Route,Routes } from 'react-router-dom'
 import {Toaster} from 'react-hot-toast'
 
