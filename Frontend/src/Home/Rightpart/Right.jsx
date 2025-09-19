@@ -6,6 +6,7 @@ import UseConversation from '../../zustand/UseConversation.js'
 import { useEffect } from 'react'
 import Loading from '../../components/Loading.jsx'
 import { useAuth } from '../../context/Authprovider.jsx'
+import { CiMenuFries } from "react-icons/ci";
 
 function Right() {
   const { selectedConversation, setSelectedConversation } = UseConversation();
@@ -40,11 +41,19 @@ const NoChatSelected = () =>{
   const [authUser] = useAuth()
   return (
     <>
+      <div className="relative">
+        <label
+          htmlFor="my-drawer-2"
+          className="btn btn-ghost drawer-button lg:hidden absolute left-5"
+        >
+          <CiMenuFries className="text-white text-xl" />
+        </label>
       <div className='flex h-screen items-center justify-center'>
         <h1 className='text-center'>Welcome {" "}<span className='font-semibold text-xl'>{authUser.user.fullname}</span>
         <br />
         No chat selected, please start conversation by seleting anyone to your contacts
         </h1>
+      </div>
       </div>
     </>
   )
